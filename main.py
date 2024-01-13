@@ -35,7 +35,7 @@ def home():
         st.subheader(title)
         col1, col2 = st.columns(2)
         col1.image(image, width=250)
-        col2.write(f"{lowurl}")
+        col2.write(f"{url}")
         price, link = st.columns(2)
         price.subheader(f"최저가: {p['price']}원")
         # link.write(f"<a href='{lowurl}'>최저가 사러가기</a>", unsafe_allow_html=True)
