@@ -11,6 +11,7 @@ def init_router():
 
 def home():
     st.title("제품 최저가 시스템")
+    
     st.write("<hr>", unsafe_allow_html=True)
     products = fetch_products()
     for p in products:
@@ -34,7 +35,7 @@ def home():
         st.subheader(title)
         col1, col2 = st.columns(2)
         col1.image(image, width=250)
-        col2.write(f"{url}")
+        col2.write(f"{lowurl}")
         price, link = st.columns(2)
         price.subheader(f"최저가: {p['price']}원")
         # link.write(f"<a href='{lowurl}'>최저가 사러가기</a>", unsafe_allow_html=True)
