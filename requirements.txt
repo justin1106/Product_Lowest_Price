@@ -2,3 +2,4 @@ streamlit
 requests
 pandas
 beautifulsoup4
+extra-streamlit-components
