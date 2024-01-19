@@ -11,7 +11,8 @@ def init_router():
 
 def home():
     st.title("제품 최저가 시스템")
-    
+    st.write("<hr>", unsafe_allow_html=True)
+    st.write("<사용법>\n1. '추가하기' 버튼 클릭\n2. 네이버 -> 쇼핑으로 가서 원하는 제품 검색\n3. 그 제품에 들어가서 URL 복사 **(브랜드 카탈로그라고 표시된 제품만 가능)**\n4. 복사한 URL을 제품 추가 화면에 붙여넣기")
     st.write("<hr>", unsafe_allow_html=True)
     products = fetch_products()
     for p in products:
@@ -38,7 +39,6 @@ def home():
         col2.write(f"{url}")
         price, link = st.columns(2)
         price.subheader(f"최저가: {p['price']}원")
-        # link.write(f"<a href='{lowurl}'>최저가 사러가기</a>", unsafe_allow_html=True)
         st.write("<hr>", unsafe_allow_html=True)
     b1, b2 = st.columns(2)
     add = b1.button("추가", use_container_width=True)
