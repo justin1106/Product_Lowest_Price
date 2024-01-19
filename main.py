@@ -12,12 +12,11 @@ def init_router():
 def home():
     st.title("제품 최저가 시스템")
     st.write("<hr>", unsafe_allow_html=True)
-    st.write("<사용법>\n1. '추가하기' 버튼 클릭\n2. 네이버 -> 쇼핑으로 가서 원하는 제품 검색\n3. 그 제품에 들어가서 URL 복사 **(브랜드 카탈로그라고 표시된 제품만 가능)**\n4. 복사한 URL을 제품 추가 화면에 붙여넣기")
+    use = st.expander("<사용법>")
+    use.write("1. '추가하기' 버튼 클릭\n2. 네이버 -> 쇼핑으로 가서 원하는 제품 검색\n3. 그 제품에 들어가서 URL 복사 **(브랜드 카탈로그라고 표시된 제품만 가능)**\n4. 복사한 URL을 제품 추가 화면에 붙여넣기")
     st.write("<hr>", unsafe_allow_html=True)
     products = fetch_products()
     for p in products:
-        
-            
         url = p['url']
         title = p['name']
         response = requests.get(url)
@@ -28,7 +27,6 @@ def home():
             
             low_price = soup.find(class_ = "lowestPrice_low_price__Ypmmk").find('em').text
             image = soup.find(class_="image_thumb__IB9B3").find('img').attrs['src']
-            lowurl = soup.find(class_ = "buyButton_compare_wrap__hNfjv").find('a').attrs['href']
             # print(low_price)
             p['price'] = low_price
         else:
